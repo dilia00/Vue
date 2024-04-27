@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- Вы разрабатываете приложение для отображения и сортировки списка товаров. У вас есть массив объектов products, где каждый объект представляет товар с его названием и ценой. Вам необходимо отобразить список товаров и предоставить пользователю возможность сортировать товары по цене (по возрастанию и по убыванию). -->
+    <div id="app">
+        <ul>
+            <li class="product" v-for="item in products" :key="item.id">
+                {{item.name}} цена: {{item.price}}
+            </li>
+        </ul>
+        <button @click="sortProducts()">Сортировать {{sortingMarker}}</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                sortToggle: true,
+                sortingMarker: '',
+                products: [
+                    { id: 1, name: 'Молоко', price: 100 },
+                    { id: 2, name: 'Хлеб', price: 300 },
+                    { id: 3, name: 'Яблоки', price: 200 },
+                    { id: 4, name: 'Мясо', price: 400 },
+                    { id: 5, name: 'Рыба', price: 250 }
+                ]
+            },
+            methods: {
+                sortProducts() {
+                    if (this.sortToggle) {
+                        this.products.sort((a, b) => a.price - b.price);
+                        this.sortToggle = false;
+                        this.sortingMarker = 'по убыванию';
+                    } else {
+                        this.products.sort((a, b) => b.price - a.price);
+                        this.sortToggle = true;
+                        this.sortingMarker = 'по возрастанию';
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
