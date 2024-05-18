@@ -1,7 +1,7 @@
 <template>
   <div class="blog-article"> 
     <h2 class="blog-articles__title">{{articles.title}}</h2>
-    <img class="blog-articles__img-1" :src="articles.imageUrl_1" :alt="articles.alt">
+    <img class="blog-articles__img-1" :src="require('../assets/' + articles.imageUrl_1)" :alt="articles.alt">
     <div class="blog-articles__date">
         <p>{{articles.date}}</p>
         <nav class="blog-articles__nav">
@@ -32,7 +32,7 @@
         <li class="blog-articles__list">Contrary to popular belief.There are many variations of passages of
             Lorem Ipsum available, but the majority have suffered.</li>
     </ol>
-    <img class="blog-articles__img-2" :src="articles.imageUrl_2" :alt="articles.alt">
+    <img class="blog-articles__img-2" :src="require('../assets/' + articles.imageUrl_2)" :alt="articles.alt">
     <p class="blog-articles__text">Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae
     turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum
     available, but the majority have suffered.</p>
