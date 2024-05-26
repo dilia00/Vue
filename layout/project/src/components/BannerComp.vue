@@ -1,43 +1,35 @@
 <template>
     <div class="banner">
         <div class="banner__intro">
-            <h2 class="banner__intro-title">{{ heder }}</h2>
-            <NavComp :items="nav"/>
+            <h2 class="banner__intro-title">{{ dataBanner.heder }}</h2>
+            <NavComp :items="dataBanner.nav"/>
         </div>
     </div>
 </template>
 
 <script>
-import NavComp from './NavComp.vue';
+import NavComp from '@/components/NavComp.vue';
 
 export default {
   name: 'BannerComp',
   components: {
     NavComp
   },
-  data() {
-    return {
-        heder: 'Our Project',
-        nav: [
-            {
-                title: 'Home',
-                href: '#'
-            }, 
-            {
-                title: 'Project',
-                href: '#'
-            }, 
-        ]
-    };
+  props: {
+    dataBanner:{
+        type: Object,
+        default() {
+            return {};
+        },
+    }
   },
-
 };
 </script>
 
 <style scoped>
 .banner {
     margin-top: 45px;
-    background-image: url(@/assets/img/banner_project.jpg);
+    background-image: url(@/assets/img/banner_blog.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

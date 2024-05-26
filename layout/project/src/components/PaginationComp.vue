@@ -1,25 +1,36 @@
 <template>
     <nav class="pagination">
-        <button class="pagination__btn" v-for="page in pages" :key="page.id">{{page}}</button>
-
-        <button class="pagination__btn"><svg width="9" height="16" viewBox="0 0 9 16" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.7715 14.9529L7.71435 8.26717L1.7715 1.58145" stroke="#292F36" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" />
-    </svg></button>
+        <router-link 
+            :to="`/${path}/${page}`" 
+            class="pagination__item" 
+            :class="{
+                pagination__item_active: page == currentPage,
+            }"
+            v-for="page in pages" 
+            :key="page.id"
+            >
+            {{page}}
+        </router-link>
     </nav>
 </template>
 
 <script>
 export default {
   name: 'PaginationComp',
-
-  data() {
-    return {
-        pages: ['01', '02', '03']
-    };
+  props: {
+    path: {
+        type: String,
+        default: undefined,
+    },
+    pages: {
+        type: Number,
+        default: undefined,
+    },
+    currentPage: {
+        type: String,
+      default: undefined,
+    },   
   },
-
 };
 </script>
 
@@ -27,28 +38,29 @@ export default {
 .pagination {
     display: flex;
     gap: 20px;
+    justify-content: center;
     margin-top: 61px;
     margin-bottom: 200px;
-    padding-left: calc(50% - 134px);
-    padding-right: calc(50% - 134px);
 }
 
-
-.pagination__btn {
+.pagination__item {
     background-color: #fff;
-    border: 1px solid #F4F0EC;
+    border: 1px solid rgb(205, 162, 116);
     width: 52px;
     height: 52px;
     border-radius: 50%;
     font-size: 16px;
+    text-align: center;
+    padding: 8px;
 }
 
-.pagination__btn:hover {
+.pagination__item:hover {
     background-color: #F4F0EC;
 }
 
-.active {
+.pagination__item_active {
     background-color: #F4F0EC;
+    border: 1px solid #F4F0EC;
 }
 
 </style>

@@ -1,7 +1,9 @@
 <template>
   <footer class="footer center">
         <div class="footer__interno footer__item">
-            <a href="#" class="header__logo"><img src="@/assets/img/logo.svg" alt="logo image"></a>
+            <router-link to="/" class="header__logo">
+                <img src="@/assets/img/logo.svg" alt="logo image">
+            </router-link>
             <p class="footer__interno-text">It is a long established fact that a reader will be distracted lookings.</p>
             <div class="footer__social">
                 <a href="https://twitter.com/" class="social__link"><svg xmlns="http://www.w3.org/2000/svg" height="22"
@@ -19,9 +21,9 @@
         </div>
         <div class="footer__pages footer__item">
             <h4 class="footer__pages-title">Pages</h4>
-            <a href="#" class="footer__pages-link">Home</a>
-            <a href="#" class="footer__pages-link">Project</a>
-            <a href="#" class="footer__pages-link">Blog</a>
+            <router-link to="/"         class="footer__pages-link">Home</router-link>
+            <router-link to="/project" class="footer__pages-link">Project</router-link>
+            <router-link to="/blog" class="footer__pages-link">Blog</router-link>
         </div>
         <div class="footer__contact footer__item">
             <h4 class="footer__contact-title">Contact</h4>

@@ -1,10 +1,9 @@
 <template>
     <nav class="nav">
-        <a class="breadcrumbs" 
-            v-for="item in items" :key="item.id"
-            :href="item.href" >
+        <router-link class="breadcrumbs" :to="item.path"
+            v-for="item in items" :key="item.id" >
             {{ item.title }}
-        </a>
+        </router-link>
     </nav>
 </template>
 
@@ -24,7 +23,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .breadcrumbs:not(:last-child)::after {
     content: "/";
     padding-left: 8px;
