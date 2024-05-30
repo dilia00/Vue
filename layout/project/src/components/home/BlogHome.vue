@@ -1,15 +1,15 @@
 <template>
-    <aside class="blog center">
-        <div class="blog__heading">
-            <h2 class="blog__title">Articles & News</h2>
-            <p class="blog__text">It is a long established fact that a reader will be distracted by the of readable
-                content of a page when lookings at its layouts the points of using.
-            </p>
-        </div>
-        <div class="blog__cards">
-            <ArticlesNews :article="article" v-for="article in getLastArticles" :key="article.id"/>
-        </div>
-    </aside>
+  <aside class="blog center">
+    <div class="blog__heading">
+      <h2 class="blog__title">Articles & News</h2>
+      <p class="blog__text">It is a long established fact that a reader will be distracted by the of readable
+          content of a page when lookings at its layouts the points of using.
+      </p>
+    </div>
+    <div class="blog__cards">
+      <ArticlesNews :article="article" v-for="article in getLastArticles" :key="article.id"/>
+    </div>
+  </aside>
 </template>
 
 <script>
@@ -30,7 +30,6 @@ export default {
       return Array.from(this.articles).slice(this.articles.length - 3, this.articles.length);
     }
   },
-
   created() {
     this.SET_ARTICLES(this.setArticles);
   },

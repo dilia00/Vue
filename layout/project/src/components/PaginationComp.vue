@@ -3,17 +3,13 @@
         <router-link 
             :to="`/${path}/${page}`" 
             class="pagination__item" 
-            :class="{
-                pagination__item_active: page == currentPage,
-            }"
+            :class="{pagination__item_active: page == currentPage}"
             v-for="page in pages" 
-            :key="page.id"
-            >
+            :key="page.id">
             {{page}}
         </router-link>
     </nav>
 </template>
-
 <script>
 export default {
   name: 'PaginationComp',

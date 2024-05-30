@@ -35,6 +35,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.banner {
+  margin-top: 45px;
+  background-image: url(@/assets/img/banner_project.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 356px;
+  position: relative;
+}
 </style>

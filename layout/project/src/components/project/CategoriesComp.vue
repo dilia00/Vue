@@ -1,17 +1,15 @@
 <template>
   <div class="categories">
     <CategoriesActive v-for="(item, index) in getCategories" 
-        :categories_active="activeIndex === index" 
-        :title="item" 
-        :key="item.id"
-        @foo="onClick(index)"></CategoriesActive>
+      :categories_active="activeIndex === index" 
+      :title="item" 
+      :key="item.id"
+      @foo="onClick(index)"></CategoriesActive>
   </div>
 </template>
-
 <script>
 import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 import CategoriesActive from './CategoriesActive.vue'
-
 export default {
   name: 'CategoriesComp',
   components: {
@@ -21,7 +19,6 @@ export default {
     ...mapState(['activeIndex','categories' ]),
     ...mapGetters(["getCategories"])
   },
-
   methods: {
     ...mapMutations(['SET_CATEGORIES', 'ON_CLICK']),
     ...mapActions(['setCategories']),

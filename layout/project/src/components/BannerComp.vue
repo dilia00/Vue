@@ -6,10 +6,8 @@
         </div>
     </div>
 </template>
-
 <script>
 import NavComp from '@/components/NavComp.vue';
-
 export default {
   name: 'BannerComp',
   components: {
@@ -27,16 +25,6 @@ export default {
 </script>
 
 <style scoped>
-.banner {
-    margin-top: 45px;
-    background-image: url(@/assets/img/banner_blog.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    min-height: 356px;
-    position: relative;
-}
-
 .banner__intro {
     position: absolute;
     bottom: 0;

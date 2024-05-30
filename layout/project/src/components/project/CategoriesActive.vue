@@ -1,7 +1,10 @@
 <template>
-  <button class="categories_btn" :class="{categories_active}" @click="$emit('foo')">{{title}}</button>
+  <button class="categories_btn" 
+    :class="{categories_active}" 
+    @click="$emit('foo')">
+    {{title}}
+  </button>
 </template>
-
 <script>
 export default {
   name: 'CategoriesActive',
@@ -10,7 +13,6 @@ export default {
     title: { type: String, default:''},
   },
 }
-  
 </script>
 
 <style  scoped>

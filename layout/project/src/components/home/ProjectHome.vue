@@ -1,23 +1,21 @@
 <template>
-    <section class="project center">
-        <div class="project__heading">
-            <h2 class="project__title">Follow Our Projects</h2>
-            <p class="project__text">It is a long established fact that a reader will be distracted by the of
-                readable content of page lookings at its layouts points.
-            </p>
-        </div>
-        <div class="project__cards_home">
-            <ProjectCard v-for="card in getProjectCardsForHomePage"  
-                :key="card.id" 
-                :card="card"
-                />
-        </div>
-    </section>
+  <section class="project center">
+    <div class="project__heading">
+      <h2 class="project__title">Follow Our Projects</h2>
+      <p class="project__text">It is a long established fact that a reader will be distracted by the of
+          readable content of page lookings at its layouts points.
+      </p>
+    </div>
+    <div class="project__cards_home">
+      <ProjectCard v-for="card in getProjectCardsForHomePage"  
+          :key="card.id" 
+          :card="card"/>
+    </div>
+  </section>
 </template>
-
 <script>
 import ProjectCard from '@/components/project/ProjectCard.vue'
-import {mapGetters, mapMutations, mapActions} from 'vuex';
+import {mapGetters, mapMutations, mapActions} from 'vuex'
 
 export default {
   name: 'ProjectHome',
@@ -31,10 +29,9 @@ export default {
   computed: {
     ...mapGetters(['getProjectCards']),
     getProjectCardsForHomePage(){
-        let randomId = Math.floor(Math.random() * (this.getProjectCards.length-4))
-        return Array.from(this.getProjectCards).slice(randomId, randomId + 4)
+      let randomId = Math.floor(Math.random() * (this.getProjectCards.length-4))
+      return Array.from(this.getProjectCards).slice(randomId, randomId + 4)
     },
-
   },
   created() {
     this.SET_CARDS(this.setProjectCards())

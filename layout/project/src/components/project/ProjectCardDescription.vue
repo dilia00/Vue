@@ -1,25 +1,23 @@
 <template>
-    <div class="project__card-description">
-        <div>
-            <h3 class="project__card-title">{{ card.title }}</h3>
-            <NavComp :items="card.nav"/>
-        </div>
-        <router-link 
-          class="project__card-btn"
-          :to="`/project-details/${card.id}`"
-        >
-          <svg class="project__card-svg" width="10" height="20" viewBox="0 0 10 20" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 19L9 10L1 1" stroke="#292F36" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-          </svg>
-        </router-link>
+  <div class="project__card-description">
+    <div>
+      <h3 class="project__card-title">{{ card.title }}</h3>
+      <NavComp :items="card.nav"/>
     </div>
+    <router-link 
+      class="project__card-btn"
+      :to="`/project-details/${card.id}`">
+      <svg class="project__card-svg" width="10" height="20" viewBox="0 0 10 20" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 19L9 10L1 1" stroke="#292F36" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </router-link>
+  </div>
 </template>
 
 <script>
 import NavComp from '@/components/NavComp.vue'
-
 export default {
   name: 'ProjectCardDescription',
   components: {
@@ -33,7 +31,6 @@ export default {
       },
     },
   },
-
 };
 </script>
 

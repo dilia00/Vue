@@ -10,11 +10,9 @@
         </div>
     </section>
 </template>
-
 <script>
 import DateBlock from '@/components/DateBlock.vue'
 import { mapGetters } from 'vuex';
-
 export default {
   name: 'LatestPost',
   components: {
@@ -23,7 +21,6 @@ export default {
   computed: {
     ...mapGetters(['getLastPost'])
   },
-
 };
 </script>
 

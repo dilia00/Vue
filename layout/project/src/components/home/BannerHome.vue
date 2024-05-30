@@ -12,14 +12,11 @@
         </router-link>
     </section>
 </template>
-
 <script>
-
 export default {
   name: 'BannerHome',
 };
 </script>
-
 <style scoped>
 .banner-home {
     height: 758px;
@@ -27,7 +24,6 @@ export default {
     background: url(@/assets/img/top.png) no-repeat;
     background-position: center;
 }
-
 .banner-home__title {
     font-family: "DM Serif Display", serif;
     color: #292F36;

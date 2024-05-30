@@ -11,11 +11,9 @@
     <ProjectCardDescription :card="card"/>
   </div>
 </template>
-
 <script>
 import ProjectCardDescription from '@/components/project/ProjectCardDescription.vue'
 import { mapActions, mapMutations } from 'vuex';
-
 export default {
   name: 'ProjectCard',
   components: {
@@ -36,7 +34,6 @@ export default {
       this.SET_STAR(id)
     },
   },
-
 };
 </script>
 

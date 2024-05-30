@@ -1,25 +1,22 @@
 <template>
-    <section class="project__content center">
-        <CategoriesComp/>
-        <div class="project__box">
-            <ProjectCard v-for="card in paginatedCatalog" 
-                :key="card.id" 
-                :card="card"/>
-        </div>
-        <PaginationComp
-          :pages="totalPages"
-          :path="path"
-          :currentPage="currentPage.toString()"
-        />
-    </section>
+  <section class="project__content center">
+    <CategoriesComp/>
+    <div class="project__box">
+      <ProjectCard v-for="card in paginatedCatalog" 
+        :key="card.id" 
+        :card="card"/>
+    </div>
+    <PaginationComp
+      :pages="totalPages"
+      :path="path"
+      :currentPage="currentPage.toString()"/>
+  </section>
 </template>
-
 <script>
 import ProjectCard from '@/components/project/ProjectCard.vue'
 import PaginationComp from '@/components/PaginationComp.vue'
 import CategoriesComp from '@/components/project/CategoriesComp.vue'
 import {  mapState, mapMutations, mapActions, mapGetters} from 'vuex';
-
 export default {
   name: 'ProjectComp',
   components: {
@@ -43,7 +40,8 @@ export default {
     ...mapGetters(['getProjectCards', 'getCategories', ]),
 
     filteredProjects(){
-        return Array.from(this.getProjectCards).filter(project => project.category.includes(this.getCategories[this.activeIndex]))
+      return Array.from(this.getProjectCards)
+        .filter(project => project.category.includes(this.getCategories[this.activeIndex]))
     },
     currentPage() {
       return this.$route.params.page || 1;

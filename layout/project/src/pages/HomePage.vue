@@ -8,14 +8,10 @@
   </template>
   
   <script>
-
   import BannerHome from '@/components/home/BannerHome.vue'
   import ProjectHome from '@/components/home/ProjectHome.vue'
   import CounterComp from '@/components/home/CounterComp.vue'
   import BlogHome from '@/components/home/BlogHome.vue'
-
-  
-  
   
   export default {
     name: 'HomePage',

@@ -66,7 +66,7 @@ export default new Vuex.Store({
             }
         },
         getLastPost: (state) => {
-            return Array.from(state.articles).slice(-1)[0];
+            return state.articles[state.articles.length - 1];
         },
         getArticleById: (state) => (id) => {
             if (id) {
@@ -1071,6 +1071,5 @@ export default new Vuex.Store({
 
         //     commit('SET_STAR', payload)
         // }
-
     }
 })

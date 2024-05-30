@@ -1,39 +1,39 @@
 <template>
-    <div >
-      <div class="banner-articles"></div>
-      <main class="blog-articles center" >
-          <div v-if="!id" class="blog-articles__content">
-            <CompArticle v-for="article in filteredArticle" 
-              :articles="article" 
-              :key="article.id">
-            </CompArticle>
-          </div>
-          <div v-else class="blog-articles__content" >
-            <div v-if="getArticleById(id)">
-                <CompArticle :articles="getArticleById(id)"/>
-            </div>
-            <div v-else>
-                <h1>the post {{ id }} has not found</h1>
-            </div>
-          </div>
-          <div class="tags">
-            <h2 class="tags__title">Tags</h2>
-            <div class="tags__btn-box">
-                <TagsComp v-for="(tag, index) in getActualTags" 
-                  :tag_active="activeTag === index" 
-                  :tag="tag" :key="tag.id"
-                  @click="onClickTag(index)">
-                </TagsComp>
-            </div>
-          </div>
-      </main>      
-    </div>
-  </template>
+  <div >
+    <div class="banner-articles"></div>
+    <main class="blog-articles center" >
+      <div v-if="!id" class="blog-articles__content">
+        <CompArticle v-for="article in filteredArticle" 
+          :articles="article" 
+          :key="article.id">
+        </CompArticle>
+      </div>
+      <div v-else class="blog-articles__content" >
+        <div v-if="getArticleById(id)">
+            <CompArticle :articles="getArticleById(id)"/>
+        </div>
+        <div v-else>
+            <h1>the post {{ id }} has not found</h1>
+        </div>
+      </div>
+      <div class="tags">
+        <h2 class="tags__title">Tags</h2>
+        <div class="tags__btn-box">
+          <TagsComp v-for="(tag, index) in getActualTags" 
+            :tag_active="activeTag === index" 
+            :tag="tag" :key="tag.id"
+            @click="onClickTag(index)">
+          </TagsComp>
+        </div>
+      </div>
+    </main>      
+  </div>
+</template>
   
-  <script>
+<script>
   import CompArticle from '@/components/articles/CompArticle.vue'
   import TagsComp from '@/components/articles/TagsComp.vue'
-import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
+  import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
   
   export default {
     name: 'ArticlesPage',
@@ -64,29 +64,27 @@ import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
       ...mapActions(['setArticles']),
       ...mapGetters(['getArticleById']),
       getActualTags(){
-        const allTags = [];
+        const actualTags = [];
         Array.from(this.articles).forEach(article => {
-            if (!allTags.includes(article.tag)) {
-                allTags.push(article.tag);
-            }
+          if (!actualTags.includes(article.tag)) {
+            actualTags.push(article.tag);
+          }
         })
-        return allTags;
+        return actualTags;
       },
       filteredArticle() {
-          return Array.from(this.articles).filter(article => article.tag.includes(this.getActualTags[this.activeTag]));
+        return Array.from(this.articles)
+          .filter(article => article.tag.includes(this.getActualTags[this.activeTag]));
       }
     },
     created() {
-        this.SET_ARTICLES(this.setArticles);
-        this.id = this.$route.params.id;
+      this.SET_ARTICLES(this.setArticles);
+      this.id = this.$route.params.id;
     },
   }    
+</script>
   
-  
-  </script>
-  
-  <style>
-  
+<style>
   .banner-articles {
       margin-top: 45px;
       background-image: url(@/assets/img/banner-article.jpg);
@@ -123,7 +121,5 @@ import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
       align-items: center;
       align-content: flex-start;
   }
-
-
-  </style>
+</style>
   
